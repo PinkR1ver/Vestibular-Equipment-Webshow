@@ -4,8 +4,6 @@ import PainPoints from './components/PainPoints/PainPoints'
 import MarketLandscape from './components/MarketLandscape/MarketLandscape'
 import Opportunity from './components/Opportunity/Opportunity'
 import MarketSummary from './components/MarketSummary/MarketSummary'
-import ProductShowcase from './components/ProductShowcase/ProductShowcase'
-import ProductVision from './components/ProductVision/ProductVision'
 import References from './components/References/References'
 
 // 全面启用原生 CSS Scroll Snap 架构
@@ -32,23 +30,14 @@ function App() {
       {/* MarketLandscape 将横向段收缩为 4 屏设备卡，避免把总结硬塞在横向滚动结尾。 */}
       <MarketLandscape />
 
-      {/* 市场全景总结单独拆成下一屏 */}
+      {/* 市场现有产品类型总结 */}
       <MarketSummary />
 
-      {/* Opportunity */}
-      <section className="w-full h-screen snap-start snap-always relative z-10 bg-[#0d0d0d] shadow-[0_-20px_50px_rgba(0,0,0,0.8)] border-t border-white/5">
+      {/* Opportunity + References（公开版收束到这里） */}
+      <section className="w-full h-screen snap-start snap-always relative z-10 bg-[#0d0d0d] shadow-[0_-20px_50px_rgba(0,0,0,0.8)] border-t border-white/5 flex flex-col justify-between">
         <div className="absolute inset-0 bg-brand-cyan/5 mix-blend-overlay pointer-events-none" />
-        <Opportunity />
-      </section>
-
-      {/* Our Product 主展示页 */}
-      <ProductShowcase />
-
-      {/* ProductVision 作为产品体系总结页；References 继续放在最后一屏底部 */}
-      <section className="w-full h-screen snap-start snap-always relative z-10 bg-[#0f0f0f] shadow-[0_-20px_50px_rgba(0,0,0,0.8)] border-t border-white/5 flex flex-col justify-between">
-        <div className="absolute inset-0 bg-purple-500/5 mix-blend-overlay pointer-events-none" />
         <div className="flex-grow flex flex-col justify-center">
-          <ProductVision />
+          <Opportunity />
         </div>
         <div className="w-full bg-[#050505] border-t border-white/5">
           <References />
